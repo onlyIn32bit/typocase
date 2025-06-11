@@ -1,0 +1,156 @@
+{{define "nav"}}
+<nav>
+    <div class="nav-left">
+      <div class="hamburger" id="hamburger">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 12h16"/><path d="M4 18h16"/><path d="M4 6h16"/></svg>
+      </div>
+    </div>
+
+    <div class="nav-center">
+      TYPO CASE
+    </div>
+
+    <div class="nav-right">
+			<a href="/user">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-icon lucide-user-round"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+			</a>
+      <a href="/cart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart-icon lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li>Thiết bị</li>
+      <li>Thiết kế</li>
+      <li>Co-Lab</li>
+      <li>Dòng Custom</li>
+      <li>Sản phẩm</li>
+      <li>Mới & Nổi Bật</li>
+      <li>Thẻ quà tặng</li>
+    </ul>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+
+	<script>
+		const hamburger = document.getElementById("hamburger");
+		const mobileMenu = document.getElementById("mobileMenu");
+		const overlay = document.getElementById("overlay");
+
+		hamburger.addEventListener("click", () => {
+			mobileMenu.classList.add("open");
+			overlay.classList.add("show");
+		});
+
+		overlay.addEventListener("click", () => {
+			mobileMenu.classList.remove("open");
+			overlay.classList.remove("show");
+		});
+	</script>
+{{end}} 
+
+{{define "footer"}}
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>NEWSLETTER</h4>
+      <div class="newsletter">
+        <input
+          type="email"
+          placeholder="Enter your email"
+        />
+        <button>ĐĂNG KÝ</button>
+        <p>
+          Bằng cách tiếp tục, bạn đồng ý nhận tin tức từ CASETiFY! Để biết thêm
+          chi tiết, vui lòng tham khảo Chính sách bảo mật của chúng tôi.
+        </p>
+      </div>
+
+      <h4>LET'S BE FRIENDS</h4>
+      <div class="socials">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-x-twitter"></i>
+        <i class="fab fa-pinterest-p"></i>
+        <i class="fab fa-tiktok"></i>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>CASETiFY Club</h4>
+      <a href="#">Tải app Co-Lab</a>
+      <a href="#">Chính hãng CASETiFY</a>
+      <a href="#">Mã giảm giá & Coupon</a>
+      <a href="#">Mua thẻ quà tặng</a>
+      <a href="#">Review</a>
+      <a href="#">CASETiFY Travel</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>CHỌN THIẾT BỊ</h4>
+      <strong>Apple</strong>
+      <a href="#">iPhone 15 Pro Max</a>
+      <a href="#">iPhone 15 Pro</a>
+      <a href="#">iPhone 14 Pro Max</a>
+      <a href="#">iPhone 14 Pro</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>ABOUT CASETiFY</h4>
+      <a href="#">FAQ</a>
+      <a href="#">Liên hệ</a>
+      <a href="#">Về chúng tôi</a>
+      <a href="#">#TheCASETiFYStandard</a>
+      <a href="#">#CASETiFYCustomization</a>
+      <a href="#">#CASETiFYSustainability</a>
+      <a href="#">Báo chí</a>
+      <a href="#">Nghề nghiệp</a>
+      <a href="#">Ghé thăm chúng tôi</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>TRỢ GIÚP</h4>
+      <a href="#">Câu hỏi thường gặp</a>
+      <a href="#">100% Hài Lòng</a>
+      <a href="#">Theo dõi đơn hàng</a>
+      <a href="#">Liên hệ chúng tôi</a>
+    </div>
+  </div>
+
+  <div class="footer-container">
+    <div class="rating">
+      Average
+      <div class="stars">
+        <span>⭐</span>
+        <span>⭐</span>
+        <span>⭐</span>
+        <span>⭐</span>
+        <span style="color: #666">⭐</span>
+      </div>
+      134,813 reviews on
+      <span style="color: #00b67a; margin-left: 5px">★ Trustpilot</span>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    Copyright © 2025 CASETiFY &nbsp; | &nbsp;
+    <a
+      href="#"
+      style="color: #999; text-decoration: none"
+      >Privacy Policy</a
+    >
+    &nbsp; | &nbsp;
+    <a
+      href="#"
+      style="color: #999; text-decoration: none"
+      >Terms and Conditions</a
+    >
+  </div>
+
+  <div class="globe-icon">
+    <i class="fas fa-globe"></i>
+  </div>
+</footer>
+{{end}}

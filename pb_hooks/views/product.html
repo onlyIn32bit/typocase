@@ -1,0 +1,21 @@
+{{define "head"}}
+    <title>Sản phẩm | TYPO CASE</title>
+{{end}}
+
+{{define "body"}}
+    {{block "nav" .}}{{end}}
+
+    <h1>Các sản phẩm</h1>
+    <div class="product-list">
+        {{range .products}}
+            <a class="product-item" href="/product/{{.id}}">
+                <img src="{{.imglink}}" alt="{{.name}}">
+                <h2>{{.name}}</h2>
+                <p>{{.description}}</p>
+                <div class="price">{{.price}}&#8363;</div>
+            </a>
+        {{end}}
+    </div>
+
+    {{block "footer" .}}{{end}}
+{{end}}

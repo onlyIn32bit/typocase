@@ -1,0 +1,23 @@
+{{define "head"}}
+    <title>{{.product.name}} | TYPO CASE</title>
+{{end}}
+
+{{define "body"}}
+    {{block "nav" .}}{{end}}
+    
+    <div class="product-page">
+        <div class="product-image">
+            <img src="https://via.placeholder.com/600x400" alt="Sản phẩm xịn xò" />
+        </div>
+        <div class="product-info">
+        <h1 class="product-title">Bàn phím cơ siêu tốc</h1>
+        <div class="product-price">1.250.000₫</div>
+        <p class="product-description">
+            Bàn phím cơ có đèn RGB, switch mượt mà, gõ như mơ. Thiết kế gọn nhẹ, phù hợp cho cả game thủ và coder cày đêm.
+        </p>
+        <button class="product-buy-btn">🛒 Thêm vào giỏ</button>
+        </div>
+    </div>
+
+    {{block "footer" .}}{{end}}
+{{end}}
