@@ -1,6 +1,10 @@
 {{define "script"}}
 <script>
     const pb = new PocketBase('http://127.0.0.1:8090');
+
+    if (pb.authStore.isValid) {
+        window.location.href = '/';
+    }
     
     document.getElementById('loginForm').addEventListener('submit', (event) => {
         event.preventDefault();

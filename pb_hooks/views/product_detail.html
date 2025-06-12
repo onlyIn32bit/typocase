@@ -10,12 +10,19 @@
             <img src="https://via.placeholder.com/600x400" alt="Sản phẩm xịn xò" />
         </div>
         <div class="product-info">
-        <h1 class="product-title">Bàn phím cơ siêu tốc</h1>
-        <div class="product-price">1.250.000₫</div>
-        <p class="product-description">
-            Bàn phím cơ có đèn RGB, switch mượt mà, gõ như mơ. Thiết kế gọn nhẹ, phù hợp cho cả game thủ và coder cày đêm.
-        </p>
-        <button class="product-buy-btn">🛒 Thêm vào giỏ</button>
+            <h1 class="product-title">Ốp điện thoại {{.product.name}}</h1>
+            <div class="product-price">{{.product.price}}&#8363;</div>
+            <p class="product-description">{{.product.description}}</p>
+            <div class="product-options">
+                <select name="" id="">
+                    <option value="">Chọn model</option>
+                    <option value="ip15pm">iPhone 15 Pro Max</option>
+                    <option value="ip15p">iPhone 15 Pro</option>
+                    <option value="ip14pm">iPhone 14 Pro Max</option>
+                    <option value="ip14p">iPhone 14 Pro</option>
+                </select>
+                <button class="product-buy-btn" onclick="addToCart(event)">Thêm vào giỏ</button>
+            </div>
         </div>
     </div>
 

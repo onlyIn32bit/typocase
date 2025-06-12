@@ -1,3 +1,10 @@
+{{define "script"}}
+    <script>
+        const pb = new PocketBase('http://127.0.0.1:8090');
+        console.log(pb.authStore.isValid);
+    </script>
+{{end}}
+
 {{define "head"}}
     <title>TYPO CASE | Ốp lưng tốt nhất</title>
 {{end}}
@@ -5,9 +12,8 @@
 {{define "body"}}
     {{block "nav" .}}{{end}}
 
-    <h1>Welcome to the PB Hooks App</h1>
-    <p>This is the index page of the PB Hooks application.</p>
-    <p>Use the navigation to explore different features.</p>
+    <h1>TYPO CASE</h1>
+    <a href="/product">Xem sản phẩm</a>
 
     {{block "footer" .}}{{end}}
 {{end}}

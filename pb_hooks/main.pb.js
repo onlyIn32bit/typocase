@@ -15,8 +15,28 @@ routerAdd("get", "/login", (e) => {
         .loadFiles(`${__hooks}/views/global.html`, `${__hooks}/views/components.html`, `${__hooks}/views/login.html`)
         .render({});
 
-    if (e.auth) return e.redirect(302, "/");
     return e.html(200, html);
+});
+
+routerAdd("post", "/login", (e) => {
+    const { email, password } = e.requestInfo().body;
+
+    if (!email || !password) {
+        return e.json(400, { error: "Email and password are required." });
+    }
+
+    const user = $app.findAuthRecordByEmail("users", email)
+
+    if (!user) {
+        return e.json(404, { error: "User not found." });
+    }
+
+    if (!user.validatePassword(password)) {
+        return e.json(401, { error: "Invalid password." });
+    }
+
+    e.auth = user;
+    return $apis.recordAuthResponse(e, user, "email", "Success");
 });
 
 routerAdd("get", "/register", (e) => {
@@ -68,7 +88,7 @@ routerAdd("get", "/product/{id}", (e) => {
             product: record ? {
                 id: id,
                 name: record.get("name"),
-                price: record.get("price"),
+                price: record.getInt("price").toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'),
                 description: record.get("description"),
             } : null
         });
@@ -77,21 +97,10 @@ routerAdd("get", "/product/{id}", (e) => {
 });
 
 routerAdd("get", "/cart", (e) => {
-    const record = $app.findRecordsByFilter(
-        "carts",
-        "user = {:user_id} && isOrdered = false",
-        "-updated",
-        100,
-        0,
-        { user_id: e.auth?.id },
-        {}
-    );
-
     const html = $template
-        .loadFiles(`${__hooks}/views/global.html`, "", `${__hooks}/views/components.html`, `${__hooks}/views/cart.html`)
-        .render({ carts: record });
+        .loadFiles(`${__hooks}/views/global.html`, `${__hooks}/views/components.html`, `${__hooks}/views/cart.html`)
+        .render({});
 
-    if (!e.auth) return e.redirect(302, "/login");
     return e.html(200, html);
 });
 

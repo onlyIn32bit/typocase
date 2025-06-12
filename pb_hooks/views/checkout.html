@@ -1,0 +1,38 @@
+{{define "script"}}
+{{end}}
+
+{{define "head"}}
+<title>Checkout | TYPO CASE</title>
+{{end}}
+
+{{define "body"}}
+<div class="checkout-container">
+    <h2>Checkout</h2>
+
+    <div class="section">
+      <h4>Shipping Information</h4>
+      <input type="text" placeholder="Full Name" required/>
+      <input type="email" placeholder="Email" required/>
+      <input type="text" placeholder="Phone Number" required/>
+      <input type="text" placeholder="Address" required/>
+    </div>
+
+    <div class="section order-summary">
+      <h4>Order Summary</h4>
+      <div class="summary-item">
+        <span>Wireless Earbuds x1</span>
+        <span>$29.99</span>
+      </div>
+      <div class="summary-item">
+        <span>Smartphone Stand x2</span>
+        <span>$30.00</span>
+      </div>
+      <div class="summary-item">
+        <strong>Total</strong>
+        <strong>$59.99</strong>
+      </div>
+    </div>
+
+    <button class="checkout-btn">Place Order</button>
+  </div>
+{{end}}
